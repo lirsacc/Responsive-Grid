@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0' name='viewport'>
+    <title>Responsive grid demo</title>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="grid.css">
+    <style>
+        body{
+            font-family: "Lato", Lato, Helvetica, Arial, sans-serif;
+        }
+        .column{
+            height: 48px;
+            background: #F05B30;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            line-height: 48px;
+        }
+        .no-mobile{
+            background: #479FE3;
+        }
+
+        .mobile-only{
+            background: #217F64;
+        }
+        .row.test{
+            background: #CCCCCC;
+        }
+        h2{
+            font-size: 32px;
+            text-align: center;
+            line-height: 48px;
+            height: 48px;
+            margin-bottom: 16px;
+            font-weight: 300;
+        }
+        @media screen and (max-width: 640px) {
+        }
+    </style>
+</head>
+<body>
+    <h2 class="row">Simple Grid</h2>
+    <div class="row test">
+        <div class="column one">1</div>
+        <div class="column one">1</div>
+        <div class="column one">1</div>
+        <div class="column one">1</div>
+        <div class="column one">1</div>
+        <div class="column one">1</div>
+        <div class="column one">1</div>
+        <div class="column one">1</div>
+        <div class="column one">1</div>
+        <div class="column one">1</div>
+        <div class="column one">1</div>
+        <div class="column one">1</div>
+    </div>
+    <div class="row test">
+        <div class="column two">2</div>
+        <div class="column two">2</div>
+        <div class="column two">2</div>
+        <div class="column two">2</div>
+        <div class="column two">2</div>
+        <div class="column two">2</div>
+    </div>
+    <div class="row test">
+        <div class="column three">3</div>
+        <div class="column five">5</div>
+        <div class="column four">4</div>
+    </div>
+    <h2 class="row">Offsetting</h2>
+    <div class="row test">
+        <div class="column six offset by-six">6 offset by 6</div>
+    </div>
+    <div class="row test">
+        <div class="column four offset by-four">4 by 4</div>
+    </div>
+    <h2 class="row">
+        Mobile Classes
+    </h2>
+    <div class="row mobile-only">
+        <div class="column four"></div>
+        <div class="column four">This row only appears on mobile</div>
+        <div class="column four"></div>
+    </div>
+    <div class="row no-mobile">
+        <div class="column four"></div>
+        <div class="column four">This row disappears on mobile</div>
+        <div class="column four"></div>
+    </div>
+    <div class="row test">
+        <div class="column mobile-only six">This column only appears on mobile</div>
+        <div class="column no-mobile six">This column disappears on mobile</div>
+    </div>
+    <h2 class="row">Full Width Rows</h2>
+    <div class="row-full test">
+        <div class="column one">1</div>
+        <div class="column one">1</div>
+        <div class="column one">1</div>
+        <div class="column one">1</div>
+        <div class="column one">1</div>
+        <div class="column one">1</div>
+        <div class="column one">1</div>
+        <div class="column one">1</div>
+        <div class="column one">1</div>
+        <div class="column one">1</div>
+        <div class="column one">1</div>
+        <div class="column one">1</div>
+    </div>
+</body>
+</html>
