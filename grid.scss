@@ -6,16 +6,15 @@
 //	-------------------------
 
 //Grid full size
-$grid_max_width : 1196;
-//Grid gutter size at full width
-$grid_gutter_at_full_width : 16;
-$grid_gutter_relative : 100% * $grid_gutter_at_full_width / $grid_max_width;
+$grid-max-width : 1196;
+$grid-gutter : 16;
+$grid-gutter-relative : 100% * $grid-gutter / $grid-max-width;
 //Grid columns
-$grid_columns : 12;
+$grid-columns : 12;
 //Base width (one column)
-$grid_base_width : (100% - (($grid_columns - 1) * $grid_gutter_relative)) / $grid_columns;
+$grid-base-width : (100% - (($grid-columns - 1) * $grid-gutter-relative)) / $grid-columns;
 // Mobile breakpoints
-$mobile_breakpoint : 640px;
+$grid-breakpoint : 640px;
 
 //	Grid containers
 //	-------------------------
@@ -31,7 +30,7 @@ $mobile_breakpoint : 640px;
 	}
 }
 .row{										//	Limited width row
-	max-width : $grid_max_width * 1px;
+	max-width : $grid-max-width * 1px;
 }
 .row-full{									//	Full width row
 	max-width: 100%;
@@ -41,7 +40,7 @@ $mobile_breakpoint : 640px;
 
 	width : 100%;
 	@if $full == 'full' {
-		max-width : $grid_max_width * 1px;
+		max-width : $grid-max-width * 1px;
 	} @else {
 		max-width:100%;
 	}
@@ -58,7 +57,7 @@ $mobile_breakpoint : 640px;
 .column{
 	display: block;
 	float: left;
-	margin-right : $grid_gutter_relative;	//	Assymetric Margin
+	margin-right : $grid-gutter-relative;	//	Assymetric Margin
 	@include box-sizing(border-box);		//	To add paddings & borders without setting off the grid
 
 	//	Column widths
@@ -66,24 +65,24 @@ $mobile_breakpoint : 640px;
 	//
 	//	Add new column with
 	//
-	//	&.num	{width : num	*	$grid_base_width	+	( num - 1 )	*	$grid_gutter_relative	;	}
+	//	&.num	{width : num	*	$grid-base-width	+	( num - 1 )	*	$grid-gutter-relative	;	}
 	//
 	//	The default grid is 12 columns wide but you can make it whatever you want
 	//	Just don't forget to extend the class
 	//	Don't forget to change the last column index to remove right margin
 
-	&.one	{width : 1	*	$grid_base_width	;	}
-	&.two	{width : 2	*	$grid_base_width	+	1	*	$grid_gutter_relative	;	}
-	&.three	{width : 3 	* 	$grid_base_width	+	2	*	$grid_gutter_relative	;	}
-	&.four	{width : 4	*	$grid_base_width	+	3	*	$grid_gutter_relative	;	}
-	&.five	{width : 5	* 	$grid_base_width	+	4	*	$grid_gutter_relative	;	}
-	&.six	{width : 6	* 	$grid_base_width	+	5	*	$grid_gutter_relative	;	}
-	&.seven	{width : 7	* 	$grid_base_width	+	6	*	$grid_gutter_relative	;	}
-	&.eight	{width : 8	* 	$grid_base_width	+	7	*	$grid_gutter_relative	;	}
-	&.nine	{width : 9	* 	$grid_base_width	+	8	*	$grid_gutter_relative	;	}
-	&.ten	{width : 10	* 	$grid_base_width	+	9	*	$grid_gutter_relative	;	}
-	&.eleven{width : 11	* 	$grid_base_width	+	10	*	$grid_gutter_relative	;	}
-	&.twelve{width : 12	* 	$grid_base_width	+	11	*	$grid_gutter_relative	;	}
+	&.one	{width : 1	*	$grid-base-width	;	}
+	&.two	{width : 2	*	$grid-base-width	+	1	*	$grid-gutter-relative	;	}
+	&.three	{width : 3 	* 	$grid-base-width	+	2	*	$grid-gutter-relative	;	}
+	&.four	{width : 4	*	$grid-base-width	+	3	*	$grid-gutter-relative	;	}
+	&.five	{width : 5	* 	$grid-base-width	+	4	*	$grid-gutter-relative	;	}
+	&.six	{width : 6	* 	$grid-base-width	+	5	*	$grid-gutter-relative	;	}
+	&.seven	{width : 7	* 	$grid-base-width	+	6	*	$grid-gutter-relative	;	}
+	&.eight	{width : 8	* 	$grid-base-width	+	7	*	$grid-gutter-relative	;	}
+	&.nine	{width : 9	* 	$grid-base-width	+	8	*	$grid-gutter-relative	;	}
+	&.ten	{width : 10	* 	$grid-base-width	+	9	*	$grid-gutter-relative	;	}
+	&.eleven{width : 11	* 	$grid-base-width	+	10	*	$grid-gutter-relative	;	}
+	&.twelve{width : 12	* 	$grid-base-width	+	11	*	$grid-gutter-relative	;	}
 
 	//	Ending rows
 	//	Should work without using the .last class, but for older browsers that do not support :last-of-type or if you encounter any issue, try using it on your last columnn to remove the last margin and avoid offsetting the whole grid
@@ -111,10 +110,10 @@ $mobile_breakpoint : 640px;
 
 	display: block;
 	float: left;
-	margin-right : $grid_gutter_relative;	//	Assymetric Margin
+	margin-right : $grid-gutter-relative;	//	Assymetric Margin
 
-	//Be sure to use only the allowed number of columns set by the $grid_columns variable
-	width : $span * $grid_base_width + ( $span - 1) * $grid_gutter_relative;
+	//Be sure to use only the allowed number of columns set by the $grid-columns variable
+	width : $span * $grid-base-width + ( $span - 1) * $grid-gutter-relative;
 
 	&:last-of-type, &.last{					//Using .last class should not be necessary, but it's kept incase it's needed
 		margin-right:0;
@@ -125,7 +124,7 @@ $mobile_breakpoint : 640px;
 		height: auto;
 	}
 
-	@media screen and (max-width: $mobile_breakpoint) {
+	@media screen and (max-width: $grid-breakpoint) {
 		width : 100%;
 		margin: 0;
 	}
@@ -137,25 +136,25 @@ $mobile_breakpoint : 640px;
 
 .offset{
 	//	You can add offsets classes the same way you add column widths
-	&.by-one	{margin-left:	1	*	( $grid_base_width + $grid_gutter_relative )	;	}
-	&.by-two	{margin-left:	2	*	( $grid_base_width + $grid_gutter_relative )	;	}
-	&.by-three	{margin-left:	3	*	( $grid_base_width + $grid_gutter_relative )	;	}
-	&.by-four	{margin-left:	4	*	( $grid_base_width + $grid_gutter_relative )	;	}
-	&.by-five	{margin-left:	5	*	( $grid_base_width + $grid_gutter_relative )	;	}
-	&.by-six	{margin-left:	6	*	( $grid_base_width + $grid_gutter_relative )	;	}
-	&.by-seven	{margin-left:	7	*	( $grid_base_width + $grid_gutter_relative )	;	}
-	&.by-eight	{margin-left:	8	*	( $grid_base_width + $grid_gutter_relative )	;	}
-	&.by-nine	{margin-left:	9	*	( $grid_base_width + $grid_gutter_relative )	;	}
-	&.by-ten	{margin-left:	10	*	( $grid_base_width + $grid_gutter_relative )	;	}
-	&.by-eleven	{margin-left:	11	*	( $grid_base_width + $grid_gutter_relative )	;	}
+	&.by-one	{margin-left:	1	*	( $grid-base-width + $grid-gutter-relative )	;	}
+	&.by-two	{margin-left:	2	*	( $grid-base-width + $grid-gutter-relative )	;	}
+	&.by-three	{margin-left:	3	*	( $grid-base-width + $grid-gutter-relative )	;	}
+	&.by-four	{margin-left:	4	*	( $grid-base-width + $grid-gutter-relative )	;	}
+	&.by-five	{margin-left:	5	*	( $grid-base-width + $grid-gutter-relative )	;	}
+	&.by-six	{margin-left:	6	*	( $grid-base-width + $grid-gutter-relative )	;	}
+	&.by-seven	{margin-left:	7	*	( $grid-base-width + $grid-gutter-relative )	;	}
+	&.by-eight	{margin-left:	8	*	( $grid-base-width + $grid-gutter-relative )	;	}
+	&.by-nine	{margin-left:	9	*	( $grid-base-width + $grid-gutter-relative )	;	}
+	&.by-ten	{margin-left:	10	*	( $grid-base-width + $grid-gutter-relative )	;	}
+	&.by-eleven	{margin-left:	11	*	( $grid-base-width + $grid-gutter-relative )	;	}
 }
 
 @mixin offset($span : 1){
 
 	//	Just be sure to use only the allowed number of offset columns
-	margin-left : $span * ($grid_base_width + $grid_gutter_relative) ;
+	margin-left : $span * ($grid-base-width + $grid-gutter-relative) ;
 
-	@media screen and (max-width: $mobile_breakpoint) {
+	@media screen and (max-width: $grid-breakpoint) {
 		margin-left: 0;
 	}
 }
@@ -173,19 +172,19 @@ $mobile_breakpoint : 640px;
 
 @mixin no-mobile(){
 	display: block;
-	@media screen and (max-width: $mobile_breakpoint) { display : none ; }
+	@media screen and (max-width: $grid-breakpoint) { display : none ; }
 }
 
 @mixin mobile-only(){
 	display: none;
-	@media screen and (max-width: $mobile_breakpoint) { display : block ; }
+	@media screen and (max-width: $grid-breakpoint) { display : block ; }
 }
 
 
 //	Mobile media query
 //	-------------------------
 
-@media screen and (max-width: $mobile_breakpoint) {
+@media screen and (max-width: $grid-breakpoint) {
 
 	.column{
 		&.one, &.two, &.three, &.four, &.five, &.six, &.seven, &.eight, &.nine, &.ten, &.eleven,
