@@ -1,4 +1,4 @@
-ƒ#Responsive Grid - Learning Experiment
+#Responsive Grid - Learning Experiment
 
 ###What is this
 
