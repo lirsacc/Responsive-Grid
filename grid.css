@@ -1,11 +1,13 @@
 @charset "UTF-8";
-.row, .row-full {
-  width: 100%;
-  margin: 0 auto;
+.row, .row--full, .column {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
-  .row:after, .row-full:after {
+
+.row, .row--full {
+  width: 100%;
+  margin: 0 auto; }
+  .row:after, .row--full:after {
     content: "";
     display: block;
     clear: both; }
@@ -13,16 +15,13 @@
 .row {
   max-width: 1196px; }
 
-.row-full {
+.row--full {
   max-width: 100%; }
 
 .column {
   display: block;
   float: left;
-  margin-right: 1.33779%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+  margin-right: 1.33779%; }
   .column.one {
     width: 7.10702%; }
   .column.two {
