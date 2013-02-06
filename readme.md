@@ -1,4 +1,4 @@
-#Responsive Grid - Learning Experiment
+ƒ#Responsive Grid - Learning Experiment
 
 ###What is this
 
@@ -14,14 +14,14 @@ You cans use the 12 column grid out of the box with the grid.css file.
 
 The system is pretty basic in itself :
 
-+	Encapsulate any fluid row in `.row` class, for a 100% width row, use the `.row-full` class
++	Encapsulate any fluid row in `.row` class, for a 100% width row, use the `.row--full` class
 +	Columns are set with the `.column` class plus the number of column it spans (written in letters), like this `.column.two` to span two columns
 +	You can offset columns by adding the class `.offset` plus the number of columns you want to offset it with `.by-number`, like `.by-two`
 +	You can hide/display rows; columns or anything with the `no-mobile` and `mobile-only` classes
 
 ####Sass Mixins
 
-There's also the option of using sass mixins to avoid adding non-semantic classes, you can find them in grid.scss.
+There's also the option of using sass mixins to avoid adding non-semantic classes, you can find them in grid.mix.scss.
 
 ####Customize
 

@@ -36,5 +36,5 @@
 Icon?
 ehthumbs.db
 Thumbs.db
-.sas-cache
+./.sas-cache
 config.rb
