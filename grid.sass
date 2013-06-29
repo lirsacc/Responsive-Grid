@@ -1,0 +1,156 @@
+@charset "UTF-8"
+
+@import compass
+@import compass/css3
+
+//	Grid variables
+//	-------------------------
+
+//Grid full size
+$grid-max-width: 1196
+$grid-gutter: 16
+$grid-gutter-relative: 100% * $grid-gutter / $grid-max-width
+
+//Grid columns
+$grid-columns: 12
+
+//Base width (one column)
+$grid-base-width: (100% - ($grid-columns - 1) * $grid-gutter-relative) / $grid-columns
+
+// Mobile breakpoints
+$grid-breakpoint: 640px
+
+//	Grid containers
+//	-------------------------
+
+.row, .row--full, .column
+  +box-sizing(border-box)
+
+.row,.row--full
+  width: 100%
+  margin: 0 auto
+  &:after
+    content: ""
+    display: block
+    clear: both
+
+.row
+  max-width: $grid-max-width * 1px
+
+.row--full
+  max-width: 100%
+
+.column
+  display: block
+  float: left
+  margin-right: $grid-gutter-relative
+  //	Assymetric Margin
+  //	Column widths
+  //	-------------------------
+  //
+  //	Add new column with
+  //
+  //	&.num	{width : num	*	$grid-base-width	+	( num - 1 )	*	$grid-gutter-relative	;	}
+  //
+  //	The default grid is 12 columns wide but you can make it whatever you want
+  //	Just don't forget to extend the class
+  //	Don't forget to change the last column index to remove right margin
+  &.one
+    width: 1 * $grid-base-width
+  &.two
+    width: 2 * $grid-base-width + 1 * $grid-gutter-relative
+  &.three
+    width: 3 * $grid-base-width + 2 * $grid-gutter-relative
+  &.four
+    width: 4 * $grid-base-width + 3 * $grid-gutter-relative
+  &.five
+    width: 5 * $grid-base-width + 4 * $grid-gutter-relative
+  &.six
+    width: 6 * $grid-base-width + 5 * $grid-gutter-relative
+  &.seven
+    width: 7 * $grid-base-width + 6 * $grid-gutter-relative
+  &.eight
+    width: 8 * $grid-base-width + 7 * $grid-gutter-relative
+  &.nine
+    width: 9 * $grid-base-width + 8 * $grid-gutter-relative
+  &.ten
+    width: 10 * $grid-base-width + 9 * $grid-gutter-relative
+  &.eleven
+    width: 11 * $grid-base-width + 10 * $grid-gutter-relative
+  &.twelve
+    width: 12 * $grid-base-width + 11 * $grid-gutter-relative
+  //	Ending rows
+  //	Should work without using the .last class, but for older browsers that do not support :last-of-type or if you encounter any issue, try using it on your last columnn to remove the last margin and avoid offsetting the whole grid
+  //	Replace twelve with number of columns
+  &:last-of-type,
+  &.last,
+  &.twelve
+    margin-right: 0
+  //	Objects inside columns
+  //	-------------------------
+  img,
+  object,
+  embed
+    max-width: 100%
+    height: auto
+
+//	Offseting columns
+//	-------------------------
+
+.offset
+  //	You can add offsets classes the same way you add column widths
+  &.by-one
+    margin-left: 1 * ($grid-base-width + $grid-gutter-relative)
+  &.by-two
+    margin-left: 2 * ($grid-base-width + $grid-gutter-relative)
+  &.by-three
+    margin-left: 3 * ($grid-base-width + $grid-gutter-relative)
+  &.by-four
+    margin-left: 4 * ($grid-base-width + $grid-gutter-relative)
+  &.by-five
+    margin-left: 5 * ($grid-base-width + $grid-gutter-relative)
+  &.by-six
+    margin-left: 6 * ($grid-base-width + $grid-gutter-relative)
+  &.by-seven
+    margin-left: 7 * ($grid-base-width + $grid-gutter-relative)
+  &.by-eight
+    margin-left: 8 * ($grid-base-width + $grid-gutter-relative)
+  &.by-nine
+    margin-left: 9 * ($grid-base-width + $grid-gutter-relative)
+  &.by-ten
+    margin-left: 10 * ($grid-base-width + $grid-gutter-relative)
+  &.by-eleven
+    margin-left: 11 * ($grid-base-width + $grid-gutter-relative)
+
+=offset($span: 1)
+  //	Just be sure to use only the allowed number of offset columns
+  margin-left: $span * ($grid-base-width + $grid-gutter-relative)
+  @media screen and (max-width: $grid-breakpoint)
+    margin-left: 0
+
+//	Mobile only classes
+//	-------------------------
+
+.no-mobile
+  display: block
+  //Add this class to hide elements on mobile viewport
+
+.mobile-only
+  display: none
+  //And this one to only display element on mobile viewport
+
+//	Mobile media query
+//	-------------------------
+
+@media screen and (max-width: $grid-breakpoint)
+  .column
+    &.one, &.two, &.three, &.four, &.five, &.six, &.seven, &.eight, &.nine, &.ten, &.eleven,
+    &.twelve
+      width: 100%
+    margin: 1px 0
+    &.offset
+      margin-left: 0
+  .no-mobile
+    display: none
+  .mobile-only
+    display: block

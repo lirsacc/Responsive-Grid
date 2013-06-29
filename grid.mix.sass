@@ -1,0 +1,58 @@
+@charset "UTF-8"
+
+@import compass
+@import compass/css3
+
+//Grid full size
+$grid-max-width: 1196
+$grid-gutter: 16
+$grid-gutter-relative: 100% * $grid-gutter / $grid-max-width
+
+//Grid columns
+$grid-columns: 12
+
+//Base width (one column)
+$grid-base-width: (100% - ($grid-columns - 1) * $grid-gutter-relative) / $grid-columns
+
+// Mobile breakpoints
+$grid-breakpoint: 640px
+
+=row($full: "false")
+  width: 100%
+  @if $full == "false"
+    max-width: $grid-max-width * 1px
+  @else
+    max-width: 100%
+  margin: 0 auto
+  +box-sizing(border-box)
+  &:after
+    content: ""
+    display: block
+    clear: both
+
+=column($span: 1, $last: "false")
+  display: block
+  float: left
+  margin-right: $grid-gutter-relative
+  //	Assymetric Margin
+  +box-sizing(border-box)
+  width: $span * $grid-base-width + ($span - 1) * $grid-gutter-relative
+  @if $last == "true"
+    margin-right: 0
+  img, object, embed
+    width: 100%
+    height: auto
+  @media screen and (max-width: $grid-breakpoint)
+    width: 100%
+    margin: 0
+
+=offset($span: 1)
+  margin-left: $span * ($grid-base-width + $grid-gutter-relative)
+  @media screen and (max-width: $grid-breakpoint)
+    margin-left: 0
+
+=mobile($break)
+  @media screen and (max-width: $break)
+    display: none
+  @media screen and (min-width: $break)
+    display: block
