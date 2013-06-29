@@ -5,7 +5,11 @@
 
 //Grid full size
 $grid-max-width: 1196
+
+//	Full with in px
 $grid-gutter: 16
+
+//	Gutter size at full width in px
 $grid-gutter-relative: 100% * $grid-gutter / $grid-max-width
 
 //Grid columns
@@ -25,19 +29,22 @@ $grid-breakpoint: 640px
     max-width: 100%
   margin: 0 auto
   +box-sizing(border-box)
-  &:after
+  &
+    *zoom: 1
+  &:before, &:after
     content: ""
-    display: block
+    display: table
+  &:after
     clear: both
 
-=column($span: 1, $last: "false")
+=column($span: 1)
   display: block
   float: left
   margin-right: $grid-gutter-relative
   //	Assymetric Margin
   +box-sizing(border-box)
   width: $span * $grid-base-width + ($span - 1) * $grid-gutter-relative
-  @if $last == "true"
+  @if $span == $grid-columns
     margin-right: 0
   img, object, embed
     width: 100%
@@ -56,3 +63,9 @@ $grid-breakpoint: 640px
     display: none
   @media screen and (min-width: $break)
     display: block
+
+=desktop($break)
+  @media screen and (max-width: $break)
+    display: block
+  @media screen and (min-width: $break)
+    display: none

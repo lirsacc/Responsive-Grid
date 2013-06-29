@@ -2,7 +2,7 @@
 
 ###What is this
 
-This is a personal pet project aiming to develop my own SASS based responsive grid system. It is more of a learning project and a personal tool than a future grid framework, there are plenty of good ones out there already.  
+This is a personal pet project aiming to develop my own SASS based responsive grid system. It is more of a learning project and a personal tool than a future grid framework, there are plenty of good ones out there already.
 
 The index.html file gives  a few examples.
 
@@ -10,13 +10,13 @@ The index.html file gives  a few examples.
 
 ####Css Classes
 
-You cans use the 12 column grid out of the box with the grid.css file.  
+You cans use the 12 column grid out of the box with the grid.css file.
 
 The system is pretty basic in itself :
 
 +	Encapsulate any fluid row in `.row` class, for a 100% width row, use the `.row--full` class
-+	Columns are set with the `.column` class plus the number of column it spans (written in letters), like this `.column.two` to span two columns
-+	You can offset columns by adding the class `.offset` plus the number of columns you want to offset it with `.by-number`, like `.by-two`
++	Columns are set with the `.column-` class plus the number of column it spans (written in letters), like this `.column-two` to span two columns
++	You can offset columns by adding the class `.offset-by-` plus the number of columns you want to offset it with `.offset-by-number`, like `.offset-by-two`
 +	You can hide/display rows; columns or anything with the `no-mobile` and `mobile-only` classes
 
 ####Sass Mixins
