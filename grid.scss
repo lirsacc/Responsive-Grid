@@ -67,42 +67,21 @@ div[class^="column-"]{
 //	Column widths
 //	-------------------------
 //
-//	Add new column with
 //
-//	&.column-num	{width : num	*	$grid-base-width	+	( num - 1 )	*	$grid-gutter-relative	;	}
-//
-//	The default grid is 12 columns wide but you can make it whatever you want
-//	Just don't forget to extend the classes list
+//	The default grid is 12 columns wide but you can make it whatever you want with the variables at the top
 
-.column-one		{width : 1	*	$grid-base-width	;	}
-.column-two		{width : 2	*	$grid-base-width	+	1	*	$grid-gutter-relative	;	}
-.column-three	{width : 3 	* 	$grid-base-width	+	2	*	$grid-gutter-relative	;	}
-.column-four	{width : 4	*	$grid-base-width	+	3	*	$grid-gutter-relative	;	}
-.column-five	{width : 5	* 	$grid-base-width	+	4	*	$grid-gutter-relative	;	}
-.column-six		{width : 6	* 	$grid-base-width	+	5	*	$grid-gutter-relative	;	}
-.column-seven	{width : 7	* 	$grid-base-width	+	6	*	$grid-gutter-relative	;	}
-.column-eight	{width : 8	* 	$grid-base-width	+	7	*	$grid-gutter-relative	;	}
-.column-nine	{width : 9	* 	$grid-base-width	+	8	*	$grid-gutter-relative	;	}
-.column-ten		{width : 10	* 	$grid-base-width	+	9	*	$grid-gutter-relative	;	}
-.column-eleven	{width : 11	* 	$grid-base-width	+	10	*	$grid-gutter-relative	;	}
-.column-twelve	{width : 12	* 	$grid-base-width	+	11	*	$grid-gutter-relative	;	}
+@for $i from 1 through $grid-columns {
+	.column-#{$i} { width : $i * $grid-base-width + ($i - 1) * $grid-gutter-relative ; }
+	}
 
 //	Offseting columns
 //	-------------------------
 //
 //	You can add offsets classes the same way you add column widths
 
-.offset-by-one		{margin-left:	1	*	( $grid-base-width + $grid-gutter-relative )	;	}
-.offset-by-two		{margin-left:	2	*	( $grid-base-width + $grid-gutter-relative )	;	}
-.offset-by-three	{margin-left:	3	*	( $grid-base-width + $grid-gutter-relative )	;	}
-.offset-by-four		{margin-left:	4	*	( $grid-base-width + $grid-gutter-relative )	;	}
-.offset-by-five		{margin-left:	5	*	( $grid-base-width + $grid-gutter-relative )	;	}
-.offset-by-six		{margin-left:	6	*	( $grid-base-width + $grid-gutter-relative )	;	}
-.offset-by-seven	{margin-left:	7	*	( $grid-base-width + $grid-gutter-relative )	;	}
-.offset-by-eight	{margin-left:	8	*	( $grid-base-width + $grid-gutter-relative )	;	}
-.offset-by-nine		{margin-left:	9	*	( $grid-base-width + $grid-gutter-relative )	;	}
-.offset-by-ten		{margin-left:	10	*	( $grid-base-width + $grid-gutter-relative )	;	}
-.offset-by-eleven	{margin-left:	11	*	( $grid-base-width + $grid-gutter-relative )	;	}
+@for $i from 1 through ($grid-columns - 1) {
+.offset-by-#{$i} { margin-left : $i * ( $grid-base-width + $grid-gutter-relative ) ; }
+}
 
 //	Mobile only classes
 //	-------------------------
