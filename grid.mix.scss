@@ -1,6 +1,7 @@
 @charset 'UTF-8' ;
-@import "compass" ;
-@import "compass/css3" ;
+
+//	Grid variables
+//	-------------------------
 
 //Grid full size
 $grid-max-width : 1196; //	Full with in px
@@ -10,8 +11,16 @@ $grid-gutter-relative : 100% * $grid-gutter / $grid-max-width;
 $grid-columns : 12;
 //Base width (one column)
 $grid-base-width : (100% - (($grid-columns - 1) * $grid-gutter-relative)) / $grid-columns;
-// Mobile breakpoints
-$grid-breakpoint : 640px;
+// Mobile breakpoint
+$grid-mobile-breakpoint : 640px;
+
+//	Row mixin
+//
+//	param	=>	$full
+//
+//	Create a row container, pass true as an argument to remove max-width
+//
+//	---------------------------------------------------------------------------
 
 @mixin row($full : 'false'){
 	width : 100%;
@@ -20,23 +29,38 @@ $grid-breakpoint : 640px;
 	@else {	max-width:100%;	}
 
 	margin : 0 auto;
-	@include box-sizing(border-box) ;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
 
 	&{ *zoom: 1;}
-  &:before, &:after{
-    content: "";
-    display: table;
-  }
-  &:after{
-    clear: both;
+  	&:before, &:after{
+    	content: "";
+    	display: table;
+  	}
+  	&:after{
+    	clear: both;
 	}
 }
+
+//	Column mixin
+//
+//	param	=>	$span (default : 1)
+//
+//	Create a column of width $span where $span is the number of
+//	unit columns it will occupy
+//
+//	---------------------------------------------------------------------------
 
 @mixin column($span : 1){
 	display: block;
 	float: left;
 	margin-right : $grid-gutter-relative;	//	Assymetric Margin
-	@include box-sizing(border-box) ;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
 	width : $span * $grid-base-width + ( $span - 1) * $grid-gutter-relative;
 	@if $span == $grid-columns { margin-right:0;}
 
@@ -44,26 +68,44 @@ $grid-breakpoint : 640px;
 		width: 100%;
 		height: auto;
 	}
-	@media screen and (max-width: $grid-breakpoint) {
+	@media screen and (max-width: $grid-mobile-breakpoint) {
 		width : 100%;
 		margin: 0;
 	}
 
 }
 
+//	Offset mixin
+//
+//	param	=>	$span (default : 1)
+//
+//	Offset a column by a width of $span where $span is the number of
+//	unit columns + their margin you want to offset
+//
+//	---------------------------------------------------------------------------
+
 @mixin offset($span : 1){
 	margin-left : $span * ($grid-base-width + $grid-gutter-relative) ;
-	@media screen and (max-width: $grid-breakpoint) {
+	@media screen and (max-width: $grid-mobile-breakpoint) {
 		margin-left: 0;
 	}
 }
 
-@mixin mobile($break){
+//	Mobile mixin
+//
+//	param	=>	$break
+//
+//	Use hide($break) to hide components below width of $break
+//	Use show($break) to show components only over width of $break
+//
+//	---------------------------------------------------------------------------
+
+@mixin hide($break){
 	@media screen and (max-width: $break) { display : none ; }
 	@media screen and (min-width: $break) { display : block ; }
 }
 
-@mixin desktop($break){
+@mixin show($break){
 	@media screen and (max-width: $break) { display : block ; }
 	@media screen and (min-width: $break) { display : none ; }
 }
