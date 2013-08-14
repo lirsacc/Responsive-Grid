@@ -87,11 +87,11 @@ div[class^="column-"]{
 //	-------------------------
 
 .no-mobile{
-	display:block;			//Add this class to hide elements on mobile viewport
+	display:block!important;			//Add this class to hide elements on mobile viewport
 }
 
 .mobile-only{
-	display:none;			//And this one to only display element on mobile viewport
+	display:none!important;			//And this one to only display element on mobile viewport
 }
 
 //	Mobile media query
@@ -108,10 +108,10 @@ div[class^="column-"]{
 	}
 
 	.no-mobile{
-		display: none;
+		display: none!important;
 	}
 
 	.mobile-only{
-		display:block;
+		display:block!important;
 	}
 }
