@@ -5,108 +5,174 @@
     <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0' name='viewport'>
     <title>Responsive grid demo</title>
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <style>
+        html, body, ul, ol, li, form, fieldset, legend { margin: 0; padding: 0; }
+        h1, h2, h3, h4, h5, h6, p { margin-top: 0 }
+        fieldset, img { border: 0 }
+        li { list-style: none }
+        sup { vertical-align: text-top }
+        sub { vertical-align: text-bottom }
+        input, textarea, select { font-size: 110%; line-height: 1.1; }
+    </style>
     <link rel="stylesheet" href="grid.css">
     <style>
         body{
-            font-family: "Lato", Lato, Helvetica, Arial, sans-serif;
+            font-family: "Open Sans", Helvetica, Arial, sans-serif;
+            background: #FAFAFA;
+            color: #333;
+        }
+        header, .container{
+            width: 100%;
+            padding: 22px 0;
+        }
+        header{
+            height: 64px;
+            width: 100%;
+            background: #222;
+        }
+        header h1{
+            font-weight: 300;
+        }
+        h1{
+            text-align: center;
+            color: #dedede;
+            font-family: 'Roboto Slab';
+            font-size: 42px;
+            line-height: 64px;
+        }
+        section h2{
+            font-family: 'Roboto Slab';
+            font-weight: 300;
+            font-size: 36px;
+            line-height: 1.4;
+            text-align: center;
+            width : 100%;
+            margin:0 auto;
+            max-width: 1196px;
+        }
+        footer{
+            font-weight: 300;
+            color: #DEDEDE;
+            text-align: center;
+            min-height: 64px;
+            background: #222;
+            line-height: 42px;
         }
         div[class^="column-"]{
-            height: 48px;
-            background: #F05B30;
-            color: white;
-            font-weight: bold;
-            font-size: 16px;
+            height: 64px;
+            line-height: 64px;
+            font-weight: 700;
+            background: #9C4274;
             text-align: center;
-            line-height: 48px;
+            color: #fff;
         }
-        .no-mobile{
-            background: #479FE3;
+        section#offset .row, section#mobile .row{
+            background: #DEDEDE;
         }
-
-        .mobile-only{
-            background: #217F64;
+        section#offset div[class^="column-"]{
+            background: #FFA63C;
         }
-        .row.test{
-            background: #CCCCCC;
+        section#full div[class^="column-"]{
+            background: #EC663C;
         }
-        h2{
-            font-size: 32px;
-            text-align: center;
-            line-height: 48px;
-            height: 48px;
-            margin-bottom: 16px;
-            font-weight: 300;
+        section#mobile div[class^="column-"].mobile-only{
+            background: #63C5BF;
+        }
+        section#mobile div[class^="column-"].no-mobile{
+            background: #99C246;
+        }
+        @media only screen and (min-width: 640px){
+            .row, .row-full{
+                margin: 12px auto;
+            }
+            footer{
+                line-height: 64px;
+            }
+        }
+        @media only screen and (min-width: 1196px){
+            section h2{
+                text-align: left;
+            }
         }
     </style>
 </head>
 <body>
-    <h2 class="row">Simple Grid</h2>
-    <div class="row test">
-        <div class="column-1">1</div>
-        <div class="column-1">1</div>
-        <div class="column-1">1</div>
-        <div class="column-1">1</div>
-        <div class="column-1">1</div>
-        <div class="column-1">1</div>
-        <div class="column-1">1</div>
-        <div class="column-1">1</div>
-        <div class="column-1">1</div>
-        <div class="column-1">1</div>
-        <div class="column-1">1</div>
-        <div class="column-1">1</div>
-    </div>
-    <div class="row test">
-        <div class="column-2">2</div>
-        <div class="column-2">2</div>
-        <div class="column-2">2</div>
-        <div class="column-2">2</div>
-        <div class="column-2">2</div>
-        <div class="column-2">2</div>
-    </div>
-    <div class="row test">
-        <div class="column-3">3</div>
-        <div class="column-5">5</div>
-        <div class="column-4">4</div>
-    </div>
-    <h2 class="row">Offsetting</h2>
-    <div class="row test">
-        <div class="column-6 offset-by-6">6 offset-by 6</div>
-    </div>
-    <div class="row test">
-        <div class="column-4 offset-by-4">4 by 4</div>
-    </div>
-    <h2 class="row">
-        Mobile Classes
-    </h2>
-    <div class="row mobile-only">
-        <div class="column-4"></div>
-        <div class="column-4">This row only appears on mobile</div>
-        <div class="column-4"></div>
-    </div>
-    <div class="row no-mobile">
-        <div class="column-4"></div>
-        <div class="column-4">This row disappears on mobile</div>
-        <div class="column-4"></div>
-    </div>
-    <div class="row test">
-        <div class="column-6 mobile-only">This column only appears on mobile</div>
-        <div class="column-6 no-mobile">This column disappears on mobile</div>
-    </div>
-    <h2 class="row">Full Width Rows</h2>
-    <div class="row-full test">
-        <div class="column-1">1</div>
-        <div class="column-1">1</div>
-        <div class="column-1">1</div>
-        <div class="column-1">1</div>
-        <div class="column-1">1</div>
-        <div class="column-1">1</div>
-        <div class="column-1">1</div>
-        <div class="column-1">1</div>
-        <div class="column-1">1</div>
-        <div class="column-1">1</div>
-        <div class="column-1">1</div>
-        <div class="column-1">1</div>
-    </div>
+    <header class="row--full">
+        <h1 id="">Responsive Grid</h1>
+    </header>
+    <div class="container">
+        <section id="basic-usage">
+            <h2>Basic Usage</h2>
+            <div class="row">
+                <div class="column-1">1</div>
+                <div class="column-11">11</div>
+            </div>
+            <div class="row">
+                <div class="column-2">2</div>
+                <div class="column-10">10</div>
+            </div>
+            <div class="row">
+                <div class="column-3">3</div>
+                <div class="column-9">9</div>
+            </div>
+            <div class="row">
+                <div class="column-4">4</div>
+                <div class="column-8">8</div>
+            </div>
+            <div class="row">
+                <div class="column-5">5</div>
+                <div class="column-7">7</div>
+            </div>
+            <div class="row">
+                <div class="column-6">6</div>
+                <div class="column-6">6</div>
+            </div>
+        </section>
+        <section id="offset">
+            <h2>Offsetting columns</h2>
+            <div class="row">
+            </div>
+            <div class="row">
+                <div class="column-11 offset-by-1">11 offset by 1</div>
+            </div>
+            <div class="row">
+                <div class="column-10 offset-by-2">10 offset by 2</div>
+            </div>
+            <div class="row">
+                <div class="column-9 offset-by-3">9 offset by 3</div>
+            </div>
+            <div class="row">
+                <div class="column-8 offset-by-4">8 offset by 4</div>
+            </div>
+            <div class="row">
+                <div class="column-7 offset-by-5">7 offset by 5</div>
+            </div>
+            <div class="row">
+                <div class="column-6 offset-by-6">6 offset by 6</div>
+            </div>
+        </section>
+        <section id="mobile">
+            <h2>Mobile classes</h2>
+            <div class="row">
+                <div class="column-6 mobile-only">This column only shows on mobile</div>
+                <div class="column-6 no-mobile offset-by-6">This columns hides on mobile</div>
+            </div>
+            <div class="row mobile-only">
+                <div class="column-12">
+                    It also works on rows (mobile-only)
+                </div>
+            </div>
+            <div class="row no-mobile">
+                <div class="column-12">
+                    It also works on rows (no-mobile)
+                </div>
+            </div>
+        </section>
+        </div>
+    <footer>
+        Completely unoriginal & minimal responsive grid made with love by Charles Lirsac
+    </footer>
 </body>
 </html>
